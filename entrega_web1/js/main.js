@@ -2,7 +2,7 @@
 
 /*inicio*/
 $(document).ready(function () {
-  navigate('html/Home.html');
+  navigate('html/Animes.html');
 });
 
 
