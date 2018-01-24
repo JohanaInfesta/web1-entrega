@@ -22,6 +22,10 @@ a:hover {
   border: transparent;
   margin: 5% 0 12% 0;
 }
+.navbar-default{
+  margin-bottom: 75px;
+  height: 10%;
+}
 @media (max-width:767px) {
   ul.nav.navbar-nav {
     position: inherit;
@@ -49,6 +53,12 @@ a:hover {
 .navbar-default .navbar-nav li a:active,
 .navbar-default .navbar-nav li a:hover{
   color: #CC0033;
+}
+.navbar-nav {
+  border: 0;
+  position: absolute;
+  right: 0;
+  margin: 55px 20px 0 0;
 }
 
 /* home */
@@ -83,8 +93,13 @@ h1{
   text-align: center;
   margin-top: 0px;
 }
-.tabla-top{
-  border-collapse: collapse;
+tbody tr td img{
+  width: 100px;
+  height: 150px;
+}
+tbody tr td{
+  font-family: 'Cabin Sketch',cursive;
+  font-size: 30px;
 }
 /* Pie de pagina */
 
