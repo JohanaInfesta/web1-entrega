@@ -1,0 +1,76 @@
+/*
+ letra 'Eater'
+ letra 'Cabin Sketch'
+ */
+
+body{
+  color: #FF66CC;
+  background-image: url(https://data.whicdn.com/images/89576686/original.gif);
+  font-family: 'Cabin Sketc', cursive;
+}
+a,
+a:visited {
+    color: #FF66CC;
+}
+a:hover {
+    color: #FF66CC;
+}
+
+/* header */
+.navbar{
+  background-image: url(https://data.whicdn.com/images/89576686/original.gif);
+  border: transparent;
+  margin: 5% 0 12% 0;
+}
+@media (max-width:767px) {
+    ul.nav.navbar-nav {
+        position: inherit;
+        text-align: center;
+    }
+    .navbar-default .navbar-nav li a {
+        font-size: 20px;
+    }
+}
+@media (min-width:767px) {
+    .navbar-default .navbar-nav li a {
+        font-size: 30px;
+    }
+}
+.navbar-default .navbar-link, .navbar-default .navbar-link:hover {
+  font-family: 'Eater',cursive;
+  font-size: 6.5vw;
+  color:#CC0033;
+}
+.navbar-default .navbar-nav li a{
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 3vw;
+  color: #FF66CC;
+}
+.navbar-default .navbar-nav li a:active,
+.navbar-default .navbar-nav li a:hover{
+  color: #CC0033;
+}
+
+/* home */
+.home-img img{
+  width: 200px;
+  height: 289px;
+  display: inline-block;
+}
+
+/* Pie de pagina */
+
+.logo_pie img{
+  float: left;
+  width: 250px;
+  height: 250px;
+}
+.pie_links {
+  float: left;
+  width: 200px;
+  line-height: 30px;
+}
+.footer{
+  padding-top: 25px;
+  margin-top: 15px;
+}
