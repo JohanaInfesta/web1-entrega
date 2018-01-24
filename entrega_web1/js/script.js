@@ -1,15 +1,17 @@
 'use strict';
 
+
 /*inicio*/
 $(document).ready(function () {
-  navigate('html/home.html');
+  $(document).on('click', 'a.navigate', function(e){
+    e.preventDefault();
+
+    $.ajax({
+      url: $(this).attr('href'),
+      type: 'GET',
+      success: function(result){
+        $(".main-content").html(result);
+      }
+    })
+  })
 });
-
-
-/*Partial Render */
-function navigate(url) {
-    $.get(url, function (data) {
-        $('.main-content').html(data);
-        
-    });
-}
