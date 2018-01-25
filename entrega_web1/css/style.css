@@ -71,14 +71,11 @@ a:hover {
 /* Animes */
 .media{
   zoom:1.3;
-  margin-left: 5;
-  height: 249px;
 }
 .media-object {
   width: 159px;
   height: 249px;
 }
-
 .texto{
   padding: 8% 0 5% 0;
   font-family: 'Cabin sketch', cursive;
@@ -97,7 +94,7 @@ tbody tr td img{
   width: 100px;
   height: 150px;
 }
-tbody tr td{
+tbody tr td, thead tr th{
   font-family: 'Cabin Sketch',cursive;
   font-size: 30px;
 }
