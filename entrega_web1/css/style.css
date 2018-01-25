@@ -15,6 +15,15 @@ a:visited {
 a:hover {
   color: #FF66CC;
 }
+.main-content{
+  float: right;
+  width: 90%;
+}
+.col-lista{
+  width: 10%;
+  /* position: fixed; */
+
+}
 
 /* header */
 .navbar{
@@ -91,13 +100,26 @@ h1{
   margin-top: 0px;
 }
 tbody tr td img{
-  width: 100px;
+  width: 130px;
   height: 150px;
 }
-tbody tr td, thead tr th{
-  font-family: 'Cabin Sketch',cursive;
-  font-size: 30px;
+tbody tr td{
+  font-size: 1.5em;
 }
+thead tr th{
+  font-weight: 100;
+}
+thead tr th, tbody tr td{
+font-family: 'Cabin Sketch',cursive;
+text-align: center;
+border: 5px #ff040485 solid;
+}
+.tabla-top thead{
+  font-size: 2.5em;
+  background-color: #bd20aa4d;
+  border: 5px #ff040485 solid;
+}
+
 /* Pie de pagina */
 
 .logo_pie img{

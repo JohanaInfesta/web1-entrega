@@ -3,7 +3,7 @@
 
 /*inicio*/
 $(document).ready(function () {
-  $(document).on('click', 'a.navigate', function(e){
+  $(document).on('click', 'a.navigate',function(e){
     e.preventDefault();
 
     $.ajax({
