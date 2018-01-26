@@ -91,6 +91,11 @@ a:hover {
   font-weight: bold;
   color: #FF66CC;
 }
+/*en emision*/
+.thumbnail img{
+  width: 150px;
+  height: 150px;
+}
 /* Ranking */
 h1{
   font-family: 'Eater',cursive;
