@@ -3,7 +3,19 @@ letra 'Eater'
 letra 'Cabin Sketch'
 */
 
-body{
+/* INDICE
+1. general 17-37
+2. header 39-79
+3. home 81-86
+4. animes 89-99
+5. emision 101-
+6. Ranking
+7. foro
+8. pie de pagina
+*/
+
+/*1.   foro   */
+body,.col-lista, .thumbnail .caption, .texto, .navbar-default .navbar-nav li a{
   color: #FF66CC;
   background-image: url(https://data.whicdn.com/images/89576686/original.gif);
   font-family: 'Cabin Sketc', cursive;
@@ -21,11 +33,13 @@ a:hover {
 }
 .col-lista{
   width: 10%;
-  /* position: fixed; */
-
+  color: #CC0033 !important;
+}
+.col-lista h5{
+  font-size: 1.2em;
 }
 
-/* header */
+/*2.   header    */
 .navbar{
   background-image: url(https://data.whicdn.com/images/89576686/original.gif);
   border: transparent;
@@ -55,9 +69,7 @@ a:hover {
   color:#CC0033;
 }
 .navbar-default .navbar-nav li a{
-  font-family: 'Cabin Sketch', cursive;
   font-size: 3vw;
-  color: #FF66CC;
 }
 .navbar-default .navbar-nav li a:active,
 .navbar-default .navbar-nav li a:hover{
@@ -70,14 +82,14 @@ a:hover {
   margin: 55px 20px 0 0;
 }
 
-/* home */
+/*3.    home     */
 .home-img img{
   width: 200px;
   height: 289px;
   display: inline-block;
 }
 
-/* Animes */
+/*4.    Animes    */
 .media{
   zoom:1.3;
 }
@@ -87,16 +99,33 @@ a:hover {
 }
 .texto{
   padding: 8% 0 5% 0;
-  font-family: 'Cabin sketch', cursive;
   font-weight: bold;
-  color: #FF66CC;
 }
-/*en emision*/
+
+/*5.    emision     */
 .thumbnail img{
   width: 150px;
   height: 150px;
+  margin-bottom: 15px;
 }
-/* Ranking */
+.thumbnail{
+  background-color: transparent;
+  border: 2px #FF66CC solid;
+}
+.btn-primary{
+  color: #ACACAC;
+  background-color: #C5100D ;
+  border-color: transparent;
+}
+.dropdown-menu{
+  background-color: transparent;
+}
+.dropdown-menu p{
+  font-size: 1.2em;
+  background-image: url(https://data.whicdn.com/images/89576686/original.gif);
+}
+
+/*6.   Ranking      */
 h1{
   font-family: 'Eater',cursive;
   color: #CC0033;
@@ -125,7 +154,11 @@ border: 5px #ff040485 solid;
   border: 5px #ff040485 solid;
 }
 
-/* Pie de pagina */
+/*7.    foro   */
+
+
+
+/*8.     Pie de pagina    */
 
 .logo_pie img{
   float: left;

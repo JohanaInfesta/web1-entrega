@@ -2,7 +2,7 @@
 
 
 /*inicio*/
-/*  $(document).ready(function () {
+ $(document).ready(function () {
   $(document).on('click', 'a.navigate',function(e){
     e.preventDefault();
 
@@ -14,7 +14,17 @@
       }
     })
   })
-});  */
+});
+$(document).ready(function () {
+    navigate('html/home.html');
+});
+function navigate(url) {
+    $.get(url, function (data) {
+        $('.main-content').html(data);
+    });
+}
+
+/*
 $(document).ready(function () {
   $('.navbar-link').on('click', function(evt) {
     evt.preventDefault();
@@ -28,3 +38,4 @@ $(document).ready(function () {
     });
   })
 });
+*/
