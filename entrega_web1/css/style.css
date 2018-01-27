@@ -4,13 +4,13 @@ letra 'Cabin Sketch'
 */
 
 /* INDICE
-1. general 17-37
-2. header 39-79
-3. home 81-86
-4. animes 89-99
-5. emision 101-
-6. Ranking
-7. foro
+1. general 17-43
+2. header 46-86
+3. home 89-93
+4. animes 96-106
+5. emision 109-132
+6. Ranking 135-161
+7. foro 164-
 8. pie de pagina
 */
 
@@ -127,9 +127,10 @@ a:hover {
   font-size: 1.2em;
   background-image: url(https://data.whicdn.com/images/89576686/original.gif);
 }
-.h3 h3{
+.h3, h3{
   font-size: 1.1em;
 }
+
 /*6.   Ranking      */
 h1{
   font-family: 'Eater',cursive;
@@ -149,8 +150,8 @@ thead tr th{
   font-weight: 100;
 }
 thead tr th, tbody tr td{
-font-family: 'Cabin Sketch',cursive;
-text-align: center;
+font-family:'Cabin Sketch',cursive;
+text-align:center;
 border: 5px #ff040485 solid;
 }
 .tabla-top thead{
