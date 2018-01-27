@@ -1,0 +1,39 @@
+<article class="container cuerpo-foro">
+  <div class="form-foro">
+    <section class="coments">  <!-- comentario del foro --->
+      <ul>
+        <li>
+          <header>
+            <h4 class="nombre-comentario">...</h4>
+            <button class="delete" type="button"><i class="fa fa-trash fa-1x" onclick="deleteRanking(this.id).then(renderList)"></i></button>
+          </header>
+          <div class="contenido-comentario">
+            <div class="tema">
+              <h6 class="js-foro-nombre"></h6>
+            </div>
+            <div class="data-comentario">
+              <span class="js-foro-comentario">
+              </span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <h4>Comentarios</h4>
+    <form class="js-form"> <!-- formulario del foro--->
+      <ul class="form-style-1">
+        <li><label>Name <span class="required">*</span></label>
+        <input type="text" name="field1" class="field-divided js-input-nombre" placeholder="Nombre"/>
+      </li>
+        <li><label>Comentario</label>
+          <textarea name="field5" id="field5" class="field-long field-textarea js-input-comentario"></textarea>
+        </li>
+        <li><button class="btn-default btn" type="button" onclick="enviarComentario">Enviar</button></li>
+        <li><h7>Recargar comentarios</h7>
+          <button class="btn-default btn" type="button" onclick="resertComentarios">Reset</button>
+        </li>
+      </ul>
+    </form>
+
+  </div>
+</article>
