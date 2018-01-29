@@ -4,13 +4,13 @@ letra 'Cabin Sketch'
 */
 
 /* INDICE
-1. general 17-43
-2. header 46-86
-3. home 89-93
-4. animes 96-106
-5. emision 109-132
-6. Ranking 135-161
-7. foro 164-
+1. general
+2. header
+3. home
+4. animes
+5. emision
+6. Ranking
+7. foro
 8. pie de pagina
 */
 
@@ -26,20 +26,6 @@ a:visited {
 }
 a:hover {
   color: #FF66CC;
-}
-.main-content{
-  float: right;
-  width: 90%;
-}
-.col-lista{
-  width: 10%;
-  color: #CC0033 !important;
-}
-.col-lista h5{
-  font-size: 1.2em;
-}
-.col-lista ul li{
-  font-size: 0.9em;
 }
 
 /*2.   header    */
