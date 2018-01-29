@@ -25,6 +25,7 @@ $(document).ready(function () {
 });
 
 
+
 /*comentarios
 function renderList(){
   $('.contenido-comentario contenido-comentario').html('<div class="loading"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></div>');
