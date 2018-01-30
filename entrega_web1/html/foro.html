@@ -1,25 +1,19 @@
 <article class="container cuerpo-foro js-foro" onload="renderList()">
   <div class="form-foro">
     <h1>Foro</h1>
-    <section class="coments">  <!-- comentario del foro --->
-      <ul>
-        <li>
-          <header>
-            <h4 class="nombre-comentario"></h4>
-            <button class="delete" type="button"><i class="fa fa-trash fa-1x" onclick="deleteRanking(this.id).then(renderList)"></i></button>
-          </header>
-          <div class="contenido-comentario">
-            <div class="tema">
-              <h6 class="js-foro-nombre"></h6>
-            </div>
-            <div class="data-comentario">
-              <span class="js-foro-comentario">
-              </span>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </section>
+    <article class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-left table-responsive">
+        <table class=" table tabla-topten">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Comentario</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </article>
     <h4>Comentarios</h4>
     <form class="js-form"> <!-- formulario del foro--->
       <ul class="form-style-1">
