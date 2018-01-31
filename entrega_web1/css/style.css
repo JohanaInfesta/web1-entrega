@@ -15,7 +15,7 @@ letra 'Cabin Sketch'
 */
 
 /*1.   foro   */
-body,.col-lista, .thumbnail .caption, .texto, .navbar-default .navbar-nav li a{
+body, .thumbnail .caption, .texto, .navbar-default .navbar-nav li a{
   color: #FF66CC;
   background-image: url(https://data.whicdn.com/images/89576686/original.gif);
   font-family: 'Cabin Sketc', cursive;
@@ -26,6 +26,13 @@ a:visited {
 }
 a:hover {
   color: #FF66CC;
+}
+thead tr th, tbody tr td, .table thead tr .nombre, .table thead tr .comentario{
+  font-family:'Cabin Sketch',cursive;
+  text-align:center;
+}
+.tabla-top thead, .table thead tr .nombre, .table thead tr .comentario{
+    font-size: 2.5em;
 }
 
 /*2.   header    */
@@ -136,17 +143,24 @@ thead tr th{
   font-weight: 100;
 }
 thead tr th, tbody tr td{
-font-family:'Cabin Sketch',cursive;
-text-align:center;
 border: 5px #ff040485 solid;
 }
 .tabla-top thead{
-  font-size: 2.5em;
   background-color: #bd20aa4d;
   border: 5px #ff040485 solid;
 }
 
 /*7.    foro   */
+
+.tabla-comentario thead tr .nombre{
+  width: 20%;
+}
+.tabla-comentario thead tr .comentario{
+  width: 70%;
+}
+.tabla-comentario thead tr th, .tabla-comentario tbody tr td{
+  border-bottom: transparent;
+}
 .form-style-1{
   margin: 10px auto;
   max-width: 400px;
