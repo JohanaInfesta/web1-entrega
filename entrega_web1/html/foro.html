@@ -2,8 +2,8 @@
   <div class="form-foro">
     <h1>Foro</h1>
     <article class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-left table-responsive">
-        <table class=" table tabla-comentario">
-            <thead>|
+        <table class=" table tabla-foro">
+            <thead>
                 <tr>
                     <th class="nombre">Nombre</th>
                     <th class="comentario">Comentario</th>
@@ -23,13 +23,12 @@
         <li><label>Comentario</label>
           <textarea class="field-long field-textarea js-input-comentario"></textarea>
         </li>
-        <li><button class="btn-default btn enviar" type="button" onclick="probando()">Enviar</button></li>
+        <li><button class="btn-default btn enviar" type="button" onclick="enviarComentario()">Enviar</button></li>
         <li><h7>Recargar comentarios</h7>
-          <button class="btn-default btn reset" type="button" onclick="resertComentarios()">Reset</button>
+          <button class="btn-default btn reset" type="button" onclick="resetComentarios()">Reset</button>
+        <p id="infoGroup"></p>
         </li>
       </ul>
     </form>
-<div class="probando">
-</div>
   </div>
 </article>

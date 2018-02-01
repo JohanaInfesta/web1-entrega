@@ -10,87 +10,59 @@ function navigate(url) {
 }
 
 /*partial render*/
-$(document).ready(function () {
-  $(document).on('click', 'a.navigate',function(e){
-    e.preventDefault();
-
-    $.ajax({
-      url: $(this).attr('href'),
-      type: 'GET',
-      success:function(result){
-        $(".main-content").html(result);
-      }
-    })
-  })
-});
-
-/*
-function iniciarForo(){
-}
-*/
-
-let groupId = 1135;
-let servicioRest = 'https://web-unicen.herokuapp.com/api/thing';
-
-function probando(){
-
-  event.preventDefault();
-  let info ={
-    group: groupId,
-    thing: servicioRest,
-  };
-
+$(".navigate").on("click", function(event)
+{
   $.ajax({
-    method: "GET",
-    dataType:'JSON',
-    url: "https://web-unicen.herokuapp.com/api/thing/group/1135",
-    success: function(resultData){
-     $(".probando").html(html);
+    url: $(this).attr('href'),
+    type: 'GET',
+    dataType: "html",
+    success:function(result){
+      $(".main-content").html(result);
     },
-    error: function (jqxml, status, errorThrown) {
-      console.log(errorThrown);
-      alert ("asdfg");
+    error: function(){
+      $(".main-content").html("<h1>Error - Request Failed!</h1>");
     }
   });
-
-}
-
-
-/* compruebo que los campos esten completos para continuar, sino tiro un alert y pido todos los campos
-function agregarComentario(){
-$('.enviar').attr('disable', true);
-
-let contenido = {
-nombre : $('.js-input-nombre').val(),
-comentario : $('.js-input-comentario').val();
-}
-let completo = true;
-
-for (let campo in completo) {
-if (!contenido[campo]) {
-alert("Completar todos los campos");
-completo = false;
-break;
-}
-}
-if (completo) {
-$('.js-input-nombre').val('');
-$('.js-input-comentario').val('');
-subirComemtario(contenido, function(){
-leerForo();
-$('.enviar').attr('disabled', false);
+  $(".main-content").html("<h1>Loading...</h1>");
+  if ($('.main-content').find('.js-foro').length) {
+    getForo().then(function(list){
+      if (!list.length) {
+        iniciarForo();
+      } else {
+        leerComentario();
+      }
+    });
+  }
+  /*meter un if para cargar el foro */
+  event.preventDefault();
 });
-else {
-$('enviar').attr('disabled', false);
-}
-}
-}
 
-function leerForo(){
-$('.tabla-topten tbody').html('<div class="loading"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></div>');
+function resetComentarios(){
+  event.preventDefault();
+  let grupo = 1135;
+  $.ajax({
+    method: "GET",
+    dataType: 'JSON',
+    url: "http://web-unicen.herokuapp.com/api/thing/group/" + grupo,
+    success: function(resultData){
+      //al ser tipo JSON resultData es un objeto listo para usar
+      let html = "";
+      for (let i = 0; i < resultData.information.length; i++) {
+        html += "Id: " + resultData.information[i]['_id'] + "<br />";
+        html += "Grupo: " + resultData.information[i]['group'] + "<br />";
+        html += "Informacion: " + resultData.information[i]['thing'] + "<br />";
+        html += "--------------------- <br />";
+      }
+      $("#infoGroup").html(html);
+    },
+    error:function(jqxml, status, errorThrown){
+      console.log(errorThrown);
+    }
+  });
 }
-*/
 /*
+function iniciarForo(){
+
 let list =[{
 nombre : 'Legend',
 comentario : 'Todo parece ser como lo es la empresa animadora de la serie Code Geass filtró un vídeo avance de la supuesta tercera temporada de esta famosa serie, el cual ha causado mucho revuelo puesto que prestigiosas paginas parecen avalar esta noticia, el titulo por la cual pretende regresar esta icónica serie es (Lelouch of the Resurrection) aun por lo pronto nada esta oficializado dado que la empresa Sunrise no ha anunciado el regreso de la tercera temporada aunque tampoco lo ha negado, entre las tantas posibilidades existe la probabilidad de que este sea un vídeo recopila-torio como la mayoría de las películas relacionadas a esta serie.',
@@ -101,5 +73,14 @@ comentario : 'Con la publicación de tercer tomo del manga Vigilante (Boku No He
 nombre :'Tidus',
 comentario : 'Con la publicación de tercer tomo del manga Vigilante (Boku No Hero Academia ILLEGALS) la portada del tomo a hizo mención sobre la fecha de lanzamiento de la tercera temporada del anime Boku No Hero Academia, la fecha prevista para el día de lanzamiento es el 7 de abril.',
 }];
+cleanList().then(function (results) {
+let promises = [];
+
+for (let i = 0; i < list.length; i++) {
+promises.push(crearComentario(list[i]));
+}
+
+Promise.all(promises).then(renderList);
+});
 }
 */

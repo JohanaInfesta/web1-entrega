@@ -1,4 +1,4 @@
-/*
+/*  revisar 161
 letra 'Eater'
 letra 'Cabin Sketch'
 */
@@ -152,13 +152,13 @@ border: 5px #ff040485 solid;
 
 /*7.    foro   */
 
-.tabla-comentario thead tr .nombre{
+.tabla-comentario tr .nombre{
   width: 20%;
 }
-.tabla-comentario thead tr .comentario{
+.tabla-comentario tr .comentario{
   width: 70%;
 }
-.tabla-comentario thead tr th, .tabla-comentario tbody tr td{
+.tabla-comentario{
   border-bottom: transparent;
 }
 .form-style-1{
