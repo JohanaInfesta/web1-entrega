@@ -1,32 +1,33 @@
-<article class="container cuerpo-foro js-foro" onload="renderList()">
+<article class="container cuerpo-foro js-foro" onload="leerList()">
   <div class="form-foro">
     <h1>Foro</h1>
     <article class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-left table-responsive">
-        <table class=" table tabla-foro">
-            <thead>
-                <tr>
-                    <th class="nombre">Nombre</th>
-                    <th class="comentario">Comentario</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+      <table class=" table tabla-foro">
+        <thead>
+          <tr>
+            <th class="nombre">Nombre</th>
+            <th class="comentario">Comentario</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="template" >
+        </tbody>
+      </table>
     </article>
     <form class="js-form"> <!-- formulario del foro--->
       <ul class="form-style-1">
         <h4>Comentarios</h4>
         <li><label>Name <span class="required">*</span></label>
-        <input type="text" class="field-divided js-input-nombre" placeholder="Nombre"/>
-      </li>
+          <input type="text" class="field-divided js-input-nombre" placeholder="Nombre"/>
+        </li>
         <li><label>Comentario</label>
           <textarea class="field-long field-textarea js-input-comentario"></textarea>
         </li>
         <li><button class="btn-default btn enviar" type="button" onclick="enviarComentario()">Enviar</button></li>
+        <div id="guardarAlert" class="alert" role="alert"></div>
         <li><h7>Recargar comentarios</h7>
           <button class="btn-default btn reset" type="button" onclick="resetComentarios()">Reset</button>
-        <p id="infoGroup"></p>
+          <p id="infoGroup"></p>
         </li>
       </ul>
     </form>
