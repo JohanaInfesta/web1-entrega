@@ -1,4 +1,7 @@
 'use strict'
+
+let groupID = 1137;
+
 /*cargar home en index*/
 $(document).ready(function () {
   navigate('html/home.html');
@@ -18,19 +21,19 @@ $(".navigate").on("click", function(event)
     dataType: "html",
     success:function(result){
       $(".main-content").html(result);
+      /*meter un if para cargar el foro */
     },
     error: function(){
       $(".main-content").html("<h1>Error - Request Failed!</h1>");
     }
   });
   $(".main-content").html("<h1>Loading...</h1>");
-  /*meter un if para cargar el foro */
   event.preventDefault();
 });
 
 function resetComentarios(){
   event.preventDefault();
-  let grupo = 1136;
+  let grupo = 1137;
   $.ajax({
     method: "GET",
     dataType: 'JSON',
@@ -39,13 +42,29 @@ function resetComentarios(){
       //al ser tipo JSON resultData es un objeto listo para usar
       let html = "";
       for (let i = 0; i < resultData.information.length; i++) {
-        html += "Id: " + resultData.information[i]['_id'] + "<br />";
-        html += "Grupo: " + resultData.information[i]['group'] + "<br />";
-        html += "Informacion: " + resultData.information[i]['thing.nombre'] + "<br />";
-        html += "Informacion: " + resultData.information[i]['comentario'] + "<br />";
-        html += "--------------------- <br />";
+        html += "<tr id='"+ resultData.information[i]._id +"'>";
+        html += "<td>"+ resultData.information[i].thing['nombre'] + "</td>";
+        html += "<td>" + resultData.information[i].thing['comentarios'] + "</td>";
+        html += "<td><button class='fas fa-trash-alt eliminarfila' resultData-id='"+resultData.information[i]._id+"'></button></td></tr>";
       }
-      $("#infoGroup").html(html);
+      $("#template").html(html);
+      console.log(resultData);
+
+      $(".eliminarfila").on("click", function() {
+        event.preventDefault;
+        let _id = $(this).parent().parent().attr("id");
+        $.ajax({
+          "url" : "http://web-unicen.herokuapp.com/api/thing/" + _id,
+          "method" : "DELETE",
+          "contentType" : "application/json; charset=utf-8",
+          "dataType" : "JSON",
+          "success" : subidaConExito,
+          "error" : function(xmlhr, r, error){
+            alert("Error. Intente más tarde");
+          }
+        });
+        $(this).parent().parent().remove();
+      });
     },
     error:function(jqxml, status, errorThrown){
       console.log(errorThrown);
@@ -53,9 +72,9 @@ function resetComentarios(){
   });
 }
 
-function enviarComentario(dbody){
+function enviarComentario(){
   event.preventDefault();
-  let grupo= 1136;
+  let grupo= 1137;
   let anda ={
     "nombre":$(".js-input-nombre").val(),
     "comentarios":$(".js-input-comentario").val(),
@@ -79,17 +98,24 @@ function enviarComentario(dbody){
         console.log(errorThrown);
       }
     });
+  }else {
+    $("#guardarAlert").html("Grupo e Informacion son campos requeridos");
   }
 }
 
 
+/*
+function initList(){
 let list =[{
-  "nombre" : 'Legend',
-  "comentario" : 'Todo parece ser como lo es la empresa animadora de la serie Code Geass filtró un vídeo avance de la supuesta tercera temporada de esta famosa serie, el cual ha causado mucho revuelo puesto que prestigiosas paginas parecen avalar esta noticia, el titulo por la cual pretende regresar esta icónica serie es (Lelouch of the Resurrection) aun por lo pronto nada esta oficializado dado que la empresa Sunrise no ha anunciado el regreso de la tercera temporada aunque tampoco lo ha negado, entre las tantas posibilidades existe la probabilidad de que este sea un vídeo recopila-torio como la mayoría de las películas relacionadas a esta serie.',
+nombre : 'Legend',
+comentario : 'Todo parece ser como lo es la empresa animadora de la serie Code Geass filtró un vídeo avance de la supuesta tercera temporada de esta famosa serie, el cual ha causado mucho revuelo puesto que prestigiosas paginas parecen avalar esta noticia, el titulo por la cual pretende regresar esta icónica serie es (Lelouch of the Resurrection) aun por lo pronto nada esta oficializado dado que la empresa Sunrise no ha anunciado el regreso de la tercera temporada aunque tampoco lo ha negado, entre las tantas posibilidades existe la probabilidad de que este sea un vídeo recopila-torio como la mayoría de las películas relacionadas a esta serie.',
 },{
-  "nombre" :'Yuna',
-  "comentario" : 'Con la publicación de tercer tomo del manga Vigilante (Boku No Hero Academia ILLEGALS) la portada del tomo a hizo mención sobre la fecha de lanzamiento de la tercera temporada del anime Boku No Hero Academia, la fecha prevista para el día de lanzamiento es el 7 de abril.',
+nombre :'Yuna',
+comentario : 'Con la publicación de tercer tomo del manga Vigilante (Boku No Hero Academia ILLEGALS) la portada del tomo a hizo mención sobre la fecha de lanzamiento de la tercera temporada del anime Boku No Hero Academia, la fecha prevista para el día de lanzamiento es el 7 de abril.',
 },{
-  "nombre" :'Tidus',
-  "comentario" : 'Con la publicación de tercer tomo del manga Vigilante (Boku No Hero Academia ILLEGALS) la portada del tomo a hizo mención sobre la fecha de lanzamiento de la tercera temporada del anime Boku No Hero Academia, la fecha prevista para el día de lanzamiento es el 7 de abril.',
+nombre :'Tidus',
+comentario : 'Con la publicación de tercer tomo del manga Vigilante (Boku No Hero Academia ILLEGALS) la portada del tomo a hizo mención sobre la fecha de lanzamiento de la tercera temporada del anime Boku No Hero Academia, la fecha prevista para el día de lanzamiento es el 7 de abril.',
 }];
+let nuevaList=JSON.stringify(list);
+console.log(nuevaList);
+*/
