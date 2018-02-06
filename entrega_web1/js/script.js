@@ -62,6 +62,7 @@ function leerList(){
           dataType : "JSON",
           success : function(resultData){
             $("#template").html(html);
+            return (leerList());
           },
           error : function(xmlhr, r, error){
             alert("Error. Intente más tarde");
