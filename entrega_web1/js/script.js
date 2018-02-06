@@ -44,7 +44,7 @@ function leerList(){
       let html = "";
       for (let i = 0; i < resultData.information.length; i++) {
         html += "<tr id='"+ resultData.information[i]._id +"'>";
-        html += "<td nombre>"+ resultData.information[i].thing['nombre'] + "</td>";
+        html += "<td class='nombre-nm'>"+ resultData.information[i].thing['nombre'] +":"+ "</td>";
         html += "<td>" + resultData.information[i].thing['comentarios'] + "</td>";
         html += "<td ><button class='glyphicon glyphicon-remove eliminarComentario' resultData-id='"+resultData.information[i]._id+"'></button></td></tr>";
       }
