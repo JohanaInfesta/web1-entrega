@@ -184,8 +184,8 @@ border: 5px #ff040485 solid;
   width: 500px;
   height: 150px;
 }
-.table thead tr th{
-  border-bottom-color: transparent;
+.table thead tr th, .table tbody tr td{
+  border-color: transparent;
 }
 .glyphicon{
   border-color: transparent;
