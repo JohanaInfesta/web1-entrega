@@ -123,6 +123,9 @@ thead tr th, tbody tr td, .table thead tr .nombre, .table thead tr .comentario{
 .h3, h3{
   font-size: 1.1em;
 }
+.emision-col{
+  font-size: 75%;
+}
 
 /*6.   Ranking      */
 h1{
