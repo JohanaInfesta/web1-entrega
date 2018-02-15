@@ -44,7 +44,7 @@
       <div class="col-md-4 col-xs-4">
         <div class="input-group">
           <span class="input-group-addon">
-            <p>Modo torneo</p><input id="js-torneo" type="checkbox">
+            <p>Modo torneo</p><input id="js-best" type="checkbox">
           </span>
           <span class="input-group-addon">
             <p>Modo Spock Friendly</p><input id="js-spockfriendly" type="checkbox">
@@ -55,24 +55,23 @@
         <table class="table tabla-partidas-ganadas">
           <thead>
             <tr>
-              <td></td>
               <td data-translate>N° de Juego</td>
               <td data-translate>Partidas ganadas</td>
               <td data-translate>Partidas perdidas</td>
               <td data-translate>Partidas empates</td>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="template">
             <tr>
-              <td data-translate>Totales</td>
               <td class="total-juego"></td>
               <td class="total-usuario"></td>
               <td class="total-computadora"></td>
               <td class="total-empates"></td>
+              <td></td>
             </tr>
           </tbody>
         </table>
-        <button type="button" onclick="reset()">Reset</button>
+
       </div>
     </section>
   </article>
