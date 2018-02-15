@@ -32,7 +32,7 @@ $(".navigate").on("click", function(event)
   event.preventDefault();
 });
 
-/*lee la informacion dentro de la api y la trae a la "tabla" dentro de mi foro*/
+/*funcion GET del foro*/
 function leerList(){
   event.preventDefault();
   let grupo = groupID;
@@ -75,7 +75,7 @@ function leerList(){
     }
   });
 }
-
+/*funcion POST del foro */
 function enviarComentario(){
   event.preventDefault();
   let grupo= groupID;
@@ -107,21 +107,8 @@ function enviarComentario(){
   }
 }
 
-let list =[
-  {
-    nombre : 'Legend',
-    comentarios : 'Todo parece ser como lo es la empresa animadora de la serie Code Geass filtró un vídeo avance de la supuesta tercera temporada de esta famosa serie, el cual ha causado mucho revuelo puesto que prestigiosas paginas parecen avalar esta noticia, el titulo por la cual pretende regresar esta icónica serie es (Lelouch of the Resurrection) aun por lo pronto nada esta oficializado dado que la empresa Sunrise no ha anunciado el regreso de la tercera temporada aunque tampoco lo ha negado, entre las tantas posibilidades existe la probabilidad de que este sea un vídeo recopila-torio como la mayoría de las películas relacionadas a esta serie.',
-  },{
-    nombre :'Yuna',
-    comentarios : 'Con la publicación de tercer tomo del manga Vigilante (Boku No Hero Academia ILLEGALS) la portada del tomo a hizo mención sobre la fecha de lanzamiento de la tercera temporada del anime Boku No Hero Academia, la fecha prevista para el día de lanzamiento es el 7 de abril.',
-  },{
-    nombre :'Tidus',
-    comentarios : 'Con la publicación de tercer tomo del manga Vigilante (Boku No Hero Academia ILLEGALS) la portada del tomo a hizo mención sobre la fecha de lanzamiento de la tercera temporada del anime Boku No Hero Academia, la fecha prevista para el día de lanzamiento es el 7 de abril.',
-  }
-];
+/*funcion que carga 3 comentarios */
 function resetComentarios(){
-/*hacer funcion borrar*/
-
   for (let i = 0; i < list.length; i++) {
     let lista =list[i];
     let grupo = groupID;
@@ -147,3 +134,15 @@ function resetComentarios(){
     }
   }
 }
+let list =[
+  {
+    nombre : 'Legend',
+    comentarios : 'Todo parece ser como lo es la empresa animadora de la serie Code Geass filtró un vídeo avance de la supuesta tercera temporada de esta famosa serie, el cual ha causado mucho revuelo puesto que prestigiosas paginas parecen avalar esta noticia, el titulo por la cual pretende regresar esta icónica serie es (Lelouch of the Resurrection) aun por lo pronto nada esta oficializado dado que la empresa Sunrise no ha anunciado el regreso de la tercera temporada aunque tampoco lo ha negado, entre las tantas posibilidades existe la probabilidad de que este sea un vídeo recopila-torio como la mayoría de las películas relacionadas a esta serie.',
+  },{
+    nombre :'Yuna',
+    comentarios : 'Con la publicación de tercer tomo del manga Vigilante (Boku No Hero Academia ILLEGALS) la portada del tomo a hizo mención sobre la fecha de lanzamiento de la tercera temporada del anime Boku No Hero Academia, la fecha prevista para el día de lanzamiento es el 7 de abril.',
+  },{
+    nombre :'Tidus',
+    comentarios : 'Con la publicación de tercer tomo del manga Vigilante (Boku No Hero Academia ILLEGALS) la portada del tomo a hizo mención sobre la fecha de lanzamiento de la tercera temporada del anime Boku No Hero Academia, la fecha prevista para el día de lanzamiento es el 7 de abril.',
+  }
+];
