@@ -231,12 +231,12 @@ $(document).ready(function(){
             html += "<td>" + resultData.information[i].thing['ganadas'] + "</td>";
             html += "<td>" + resultData.information[i].thing['perdidas'] + "</td>";
             html += "<td>" + resultData.information[i].thing['empate'] + "</td>";
-            html += "<td ><button class='glyphicon glyphicon-remove eliminarComentario' resultData-id='"+resultData.information[i]._id+"'></button></td></tr>";
+            html += "<td ><button class='glyphicon glyphicon-remove eliminarTabla' resultData-id='"+resultData.information[i]._id+"'></button></td></tr>";
           }
           $("#template").html(html);
           console.log(resultData);
 
-          $(".eliminarComentario").on("click", function() {
+          $(".eliminarTabla").on("click", function() {
             event.preventDefault;
             let _id = $(this).parent().parent().attr("id");// busca el id directo para borrar
             $.ajax({
