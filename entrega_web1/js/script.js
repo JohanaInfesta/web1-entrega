@@ -22,7 +22,6 @@ $(".navigate").on("click", function(event)
       if ($(".main-content").find(".tabla-foro")) {
         leerList();
       }
-      /*meter un if para cargar el foro */
     },
     error: function(){
       $(".main-content").html("<h1>Error - Request Failed!</h1>");

@@ -23,67 +23,72 @@ $("#spock").on("click", function() {
 });
 
 function random(){
-  return Math.floor(Math.random() * 5);
+  computadora = Math.floor(Math.random() * 5);
 }
 
 $("#piedra, #papel, #tijera, #lagarto, #spock").on("click", function() {
-  Jugar(); });
+  Jugar();
+});
 
-  function Jugar(valor){
-    let maquina = random();
-    let resultado = Comparar(valor, maquina);
-    totalPartidas++;
-    creditos -=5;
-    if (resultado === -1) {
+function Jugar(valor){
+  let maquina = random();
+  let resultado = Comparar(valor, maquina);
+  totalPartidas++;
+  creditos -=5;
+  if (resultado == -1) {
       alert('Empate!');
       empates++;
-    } else if (resultado === 0){
+  } else if (resultado == 0){
       alert('Perdiste!');
       partidasPerdidas++;
-    } else {
+  } else {
       alert('Ganaste!');
       partidasGanadas++;
       creditos += 10;
-    }
-    $('.total-juego').html(totalPartidas);
-    $('.total-usuario').html(partidasGanadas);
-    $('.total-computadora').html(partidasPerdidas);
-    $('.total-empates').html(empates);
   }
 
-  function Comparar(valorUsuario, valorMaquina){
-    if (valorUsuario==valorMaquina) {
-      return -1;
-    }else if (valorUsuario == 0) {
-      if (valorMaquina == 2 || valorMaquina == 3) {
-        return 1;
-      }else {
-        return 0;
-      }
-    }else if (valorUsuario == 1) {
-      if (valorMaquina == 0 || valorMaquina == 4) {
-        return 1;
-      }else {
-        return 0;
-      }
-    }else if (valorUsuario == 2) {
-      if (valorMaquina ==1 || valorMaquina == 3) {
-        return 1;
-      }else {
-        return 0;
-      }
+  $('.total-juego').html(totalPartidas);
+  $('.total-usuario').html(partidasGanadas);
+  $('.total-computadora').html(partidasPerdidas);
+  $('.total-empates').html(empates);
+};
+
+function Comparar(){
+  let valorUsuario = usuario;
+  let valorMaquina = computadora;
+  
+  if (valorUsuario == valorMaquina) {
+    return -1;
+  }else if (valorUsuario == 0) {
+    if (valorMaquina == 2 || valorMaquina == 3) {
+      return 1;
+    }else {
+      return 0;
     }
-    else if (valorUsuario == 3) {
-      if (valorMaquina == 1 || valorMaquina == 4) {
-        return 1;
-      }else {
-        return 0;
-      }
-    }else if (valorUsuario == 4) {
-      if (valorMaquina == 0 || valorMaquina == 2) {
-        return 1;
-      }else {
-        return 0;
-      }
+  }else if (valorUsuario == 1) {
+    if (valorMaquina == 0 || valorMaquina == 4) {
+      return 1;
+    }else {
+      return 0;
+    }
+  }else if (valorUsuario == 2) {
+    if (valorMaquina ==1 || valorMaquina == 3) {
+      return 1;
+    }else {
+      return 0;
     }
   }
+  else if (valorUsuario == 3) {
+    if (valorMaquina == 1 || valorMaquina == 4) {
+      return 1;
+    }else {
+      return 0;
+    }
+  }else if (valorUsuario == 4) {
+    if (valorMaquina == 0 || valorMaquina == 2) {
+      return 1;
+    }else {
+      return 0;
+    }
+  }
+}
