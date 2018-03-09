@@ -5,6 +5,7 @@ let partidasGanadas = 0;
 let partidasPerdidas = 0;
 let empates = 0;
 let totalPartidas = 0;
+let jugadasBest = 0;
 
 $("#piedra").on("click", function() {
   usuario = 0;
@@ -29,34 +30,45 @@ function random(){
 $("#piedra, #papel, #tijera, #lagarto, #spock").on("click", function() {
   Jugar();
 });
+$("#js-spockfriendly").on("click", function() {
+  if ($("#js-spockfriendly").is(":checked")) {
+    alert("¡Modo Spock Friendly activado!");
+  }
+  else {
+    alert("¡Modo Spock Friendly desactivado!");
+  }
+});
 
 function Jugar(valor){
   let maquina = random();
   let resultado = Comparar(valor, maquina);
   totalPartidas++;
-  creditos -=5;
+  creditos-=5;
+
   if (resultado == -1) {
-      alert('Empate!');
-      empates++;
+    alert('Empate!');
+    empates++;
   } else if (resultado == 0){
-      alert('Perdiste!');
-      partidasPerdidas++;
+    alert('Perdiste!');
+    partidasPerdidas++;
   } else {
-      alert('Ganaste!');
-      partidasGanadas++;
-      creditos += 10;
+    alert('Ganaste!');
+    partidasGanadas++;
+    if($("#js-spockfriendly").is(":checked"))//terminar esto aunq no se como.
+    creditos+=10;
   }
 
   $('.total-juego').html(totalPartidas);
   $('.total-usuario').html(partidasGanadas);
   $('.total-computadora').html(partidasPerdidas);
   $('.total-empates').html(empates);
+  $('.creditos').html(creditos);
 };
 
 function Comparar(){
   let valorUsuario = usuario;
   let valorMaquina = computadora;
-  
+
   if (valorUsuario == valorMaquina) {
     return -1;
   }else if (valorUsuario == 0) {
@@ -92,3 +104,12 @@ function Comparar(){
     }
   }
 }
+/*function SpockFriendly(){
+  let valorMaquina = computadora;
+  let valorUsuario = usuario;
+  $("#js-spockfriendly").is(":checked");
+  if ((valorUsuario==4)&&(valorMaquina==0)||(valorUsuario=4)&&(valorMaquina==2)) {
+    creditos+=5;
+  }
+}
+*/
