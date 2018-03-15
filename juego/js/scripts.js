@@ -1,4 +1,3 @@
-
 let usuario;
 let creditos = 100;
 let partidasGanadas = 0;
@@ -44,6 +43,7 @@ function Jugar(valor){
   let resultado = Comparar(valor, maquina);
   totalPartidas++;
   creditos-=5;
+  SpockFriendly();
 
   if (resultado == -1) {
     alert('Empate!');
@@ -54,7 +54,6 @@ function Jugar(valor){
   } else {
     alert('Ganaste!');
     partidasGanadas++;
-    if($("#js-spockfriendly").is(":checked"))//terminar esto aunq no se como.
     creditos+=10;
   }
 
@@ -104,12 +103,12 @@ function Comparar(){
     }
   }
 }
-/*function SpockFriendly(){
+function SpockFriendly(){
   let valorMaquina = computadora;
   let valorUsuario = usuario;
-  $("#js-spockfriendly").is(":checked");
-  if ((valorUsuario==4)&&(valorMaquina==0)||(valorUsuario=4)&&(valorMaquina==2)) {
-    creditos+=5;
+  if ($("#js-spockfriendly").is(":checked")) {
+    if ((valorUsuario==4)&&(valorMaquina==0)||(valorUsuario=4)&&(valorMaquina==2)) {
+      creditos+=5;
+    }
   }
 }
-*/
