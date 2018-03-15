@@ -112,3 +112,6 @@ function SpockFriendly(){
     }
   }
 }
+function BestOf(){
+  
+}
