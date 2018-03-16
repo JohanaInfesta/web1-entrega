@@ -4,7 +4,11 @@ let partidasGanadas = 0;
 let partidasPerdidas = 0;
 let empates = 0;
 let totalPartidas = 0;
-let jugadasBest = 0;
+let Best = {
+  BestTotal : 0,
+  BestGanadas : 0,
+  BestPerdidas : 0
+};
 
 $("#piedra").on("click", function() {
   usuario = 0;
@@ -27,8 +31,9 @@ function random(){
 }
 
 $("#piedra, #papel, #tijera, #lagarto, #spock").on("click", function() {
-  Jugar();
+  JugarJuego();
 });
+//alert activado-desactivado
 $("#js-spockfriendly").on("click", function() {
   if ($("#js-spockfriendly").is(":checked")) {
     alert("¡Modo Spock Friendly activado!");
@@ -37,11 +42,30 @@ $("#js-spockfriendly").on("click", function() {
     alert("¡Modo Spock Friendly desactivado!");
   }
 });
-
+$("#js-best").on("click", function(){
+  if ($("#js-best").is(":checked")) {
+    alert("¡Modo Best Of 3 activado!");
+  }else {
+    alert("Modo Best Of 3 desactivado");
+  }
+});
+//fin alerts activado-desactivado
+function JugarJuego(){
+    totalPartidas++;
+  if ($("#js-best").is(":checked")) {
+    BestOf();
+  }else {
+    Jugar();
+  }
+  $('.total-juego').html(totalPartidas);
+  $('.total-usuario').html(partidasGanadas);
+  $('.total-computadora').html(partidasPerdidas);
+  $('.total-empates').html(empates);
+  $('.creditos').html(creditos);
+}
 function Jugar(valor){
   let maquina = random();
   let resultado = Comparar(valor, maquina);
-  totalPartidas++;
   creditos-=5;
   SpockFriendly();
 
@@ -56,13 +80,46 @@ function Jugar(valor){
     partidasGanadas++;
     creditos+=10;
   }
-
-  $('.total-juego').html(totalPartidas);
-  $('.total-usuario').html(partidasGanadas);
-  $('.total-computadora').html(partidasPerdidas);
-  $('.total-empates').html(empates);
-  $('.creditos').html(creditos);
-};
+}
+function SpockFriendly(){
+  let valorMaquina = computadora;
+  let valorUsuario = usuario;
+  if ($("#js-spockfriendly").is(":checked")) {
+    if ((valorUsuario==4)&&(valorMaquina==0)||(valorUsuario=4)&&(valorMaquina==2)) {
+      creditos+=5;
+    }
+  }
+}
+function BestOf(valor){
+  let maquina = random();
+  let resultado = Comparar(valor, maquina);
+  Best.BestTotal++;
+  if (resultado == -1) {
+    alert('Empate!');
+    empates++;
+  } else if (resultado == 0){
+    alert('Perdiste!');
+    partidasPerdidas++;
+    Best.BestPerdidas++;
+  } else {
+    alert('Ganaste!');
+    partidasGanadas++;
+    Best.BestGanadas++;
+  }
+  if (Best.BestTotal===3) {
+    if (Best.BestGanadas>=2) {
+      alert("Ganaste BestOf");
+      creditos+=5;
+    }else if (Best.BestGanadas==Best.BestPerdidas) {
+      alert("Empate BestOf");
+      creditos-=5;
+    }else {
+      alert("Perdiste BestOf");
+      creditos-=5;
+    }
+  }
+  console.log(Best);
+}
 
 function Comparar(){
   let valorUsuario = usuario;
@@ -102,16 +159,4 @@ function Comparar(){
       return 0;
     }
   }
-}
-function SpockFriendly(){
-  let valorMaquina = computadora;
-  let valorUsuario = usuario;
-  if ($("#js-spockfriendly").is(":checked")) {
-    if ((valorUsuario==4)&&(valorMaquina==0)||(valorUsuario=4)&&(valorMaquina==2)) {
-      creditos+=5;
-    }
-  }
-}
-function BestOf(){
-  
 }
